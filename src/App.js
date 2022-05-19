@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './screens/Home';
+import Register from './screens/Register';
+import Login from './screens/Login';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import Alert from './component/Alert';
+import Enterprise from './screens/Enterprise';
+import PickUpPage from './component/PickUpPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path='/' element={<Login />} />
+            <Route  path='/register' element={<Register />} />
+            <Route path='/enterprise' element={<Enterprise />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/pickup' element={<PickUpPage />} />
+          </Routes>
+        </BrowserRouter>
+        {/* <Alert/> */}
     </div>
   );
 }
